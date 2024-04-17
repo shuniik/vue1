@@ -16,16 +16,5 @@
 import { ref } from "vue";
 
 const nombre = ref("Libreta");
-
-const direccion = ref({
-  pais: "Guatemala",
-  departamento: "Quetzaltenango",
-  zona: "9",
-});
-
-const modificar = () => {
-  nombre.value = "cambiando los datos";
-  direccion.value.municipio = "Ciudad";
-};
 </script>
 <style lang=""></style>
