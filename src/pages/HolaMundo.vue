@@ -1,20 +1,62 @@
 <template>
   <div>
     <h2>Hola Mundo a todos!!!!</h2>
-    <h5>{{ nombre }}</h5>
 
-    <q-input v-model="nombre"></q-input>
-    <q-btn @click="modificar">Modificar</q-btn>
+    <q-input v-model="nuevaTarea"></q-input>
+    <q-btn @click="agregarTarea">Agregar</q-btn>
+    <p>{{ tareas }}</p>
     <br />
-    <h5>Pais: {{ direccion.pais }}</h5>
-    <h5>Departamento: {{ direccion.departamento }}</h5>
-    <h5>Zona: {{ direccion.zona }}</h5>
-    <h5>{{ direccion }}</h5>
+
+    <div>
+      <li v-for="(item, key) in tareasPendiente" :key="key">
+        {{ item.nombre }} -{{ item.hecho }} - {{ key }}
+        <q-btn @click="eliminar(key)" icon="delete_forever">Eliminar</q-btn>
+        <q-toggle v-model="item.hecho" />
+      </li>
+    </div>
+    <p>Terminadas: {{ contaTerminadas }}</p>
+    <p>
+      Ocultar tareas completadas:
+      <q-toggle v-model="ocultarCompletados"></q-toggle>
+    </p>
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
-const nombre = ref("Libreta");
+const tareas = ref([]);
+const nuevaTarea = ref("");
+const ocultarCompletados = ref(false);
+
+//propiedades computadas
+
+const tareasPendiente = computed(() => {
+  if (ocultarCompletados.value) {
+    return tareas.value.filter((tarea) => tarea.hecho == false);
+  } else {
+    return tareas.value;
+  }
+});
+
+const contaTerminadas = computed(() => {
+  let contador = 0;
+
+  tareas.value.forEach((item) => {
+    if (item.hecho) {
+      contador++;
+    }
+  });
+
+  return contador;
+});
+
+const agregarTarea = () => {
+  tareas.value.push({ nombre: nuevaTarea.value, hecho: false });
+  nuevaTarea.value = "";
+};
+
+const eliminar = (id) => {
+  tareas.value = tareas.value.filter((tarea) => item != tarea);
+};
 </script>
 <style lang=""></style>
