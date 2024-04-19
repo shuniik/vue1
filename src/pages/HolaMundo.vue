@@ -8,7 +8,11 @@
     <br />
 
     <div>
-      <li v-for="(item, key) in tareasPendiente" :key="key">
+      <li
+        v-for="(item, key) in tareasPendiente"
+        :key="key"
+        :class="{ 'bg-grey': esPar(key) }"
+      >
         {{ item.nombre }} -{{ item.hecho }} - {{ key }}
         <q-btn @click="eliminar(key)" icon="delete_forever">Eliminar</q-btn>
         <q-toggle v-model="item.hecho" />
@@ -29,6 +33,10 @@ const nuevaTarea = ref("");
 const ocultarCompletados = ref(false);
 
 //propiedades computadas
+
+const esPar = (numero) => {
+  return numero % 2 === 0;
+};
 
 const tareasPendiente = computed(() => {
   if (ocultarCompletados.value) {
