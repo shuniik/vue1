@@ -7,6 +7,7 @@ const routes = [
       { path: "holamundo", component: () => import("pages/HolaMundo.vue") },
       { path: "estilos", component: () => import("pages/EstilosyClases.vue") },
       { path: "ifshow", component: () => import("pages/ShowIf.vue") },
+      { path: "eventos", component: () => import("pages/EventosVue.vue") },
     ],
   },
 
