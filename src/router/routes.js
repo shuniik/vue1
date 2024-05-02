@@ -10,6 +10,7 @@ const routes = [
       { path: "eventos", component: () => import("pages/EventosVue.vue") },
       { path: "ciclo", component: () => import("pages/CicloVida.vue") },
       { path: "watches", component: () => import("pages/WatcheVue.vue") },
+      { path: "grid", component: () => import("pages/GridVue.vue") },
       {
         path: "componentes",
         component: () => import("pages/ComponenteVue.vue"),

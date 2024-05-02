@@ -7,6 +7,9 @@
       :completado="tarea.completado"
     >
       {{ tarea.nombre }} slot {{ tarea.completado }}
+      <template v-slot:header>
+        <p>Esto es el header nuevo</p>
+      </template>
     </tareaDetalle>
   </div>
 </template>
@@ -26,7 +29,7 @@ const tareas = ref([
 const eliminarTarea = (nombre) => {
   console.log("eliminarTarea");
   console.log(nombre);
-  tareas.value = tareas.value.filter((tarea) => tarea.nombre !== nombre);
+  //tareas.value = tareas.value.filter((tarea) => tarea.nombre !== nombre);
 };
 </script>
 
