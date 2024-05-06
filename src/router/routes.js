@@ -1,20 +1,26 @@
 const routes = [
   {
     path: "/",
+    component: () => import("layouts/LayoutsDos.vue"),
+    children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
+  },
+
+  {
+    path: "/",
     component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: "", component: () => import("pages/IndexPage.vue") },
-      { path: "holamundo", component: () => import("pages/HolaMundo.vue") },
-      { path: "estilos", component: () => import("pages/EstilosyClases.vue") },
-      { path: "ifshow", component: () => import("pages/ShowIf.vue") },
-      { path: "eventos", component: () => import("pages/EventosVue.vue") },
-      { path: "ciclo", component: () => import("pages/CicloVida.vue") },
-      { path: "watches", component: () => import("pages/WatcheVue.vue") },
-      { path: "grid", component: () => import("pages/GridVue.vue") },
       {
         path: "componentes",
         component: () => import("pages/ComponenteVue.vue"),
       },
+    ],
+  },
+
+  {
+    path: "/",
+    component: () => import("layouts/LayoutsDos.vue"),
+    children: [
+      { path: "holamundo", component: () => import("pages/HolaMundo.vue") },
     ],
   },
 
