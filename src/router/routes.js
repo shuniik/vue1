@@ -30,6 +30,13 @@ const routes = [
       { path: "perfiles", component: () => import("pages/PerfilesVue.vue") },
     ],
   },
+  {
+    path: "/",
+    component: () => import("layouts/LayoutsDos.vue"),
+    children: [
+      { path: "pinia", component: () => import("pages/PiniaVue.vue") },
+    ],
+  },
 
   // Always leave this as last one,
   // but you can also remove it
