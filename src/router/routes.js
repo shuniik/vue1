@@ -37,6 +37,13 @@ const routes = [
       { path: "pinia", component: () => import("pages/PiniaVue.vue") },
     ],
   },
+  {
+    path: "/",
+    component: () => import("layouts/LayoutsDos.vue"),
+    children: [
+      { path: "local", component: () => import("pages/LocalStorageVue.vue") },
+    ],
+  },
 
   // Always leave this as last one,
   // but you can also remove it
