@@ -3,6 +3,7 @@ import { boot } from "quasar/wrappers";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { VueFire } from "vuefire";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,7 +25,15 @@ const db = getFirestore(app);
 
 // "async" is optional;
 // more info on params: https://v2.quasar.dev/quasar-cli/boot-files
-export default boot(async (/* { app, router, ... } */) => {
+export default boot(async ({ app }) => {
+  app.use(VueFire, {
+    // imported above but could also just be created here
+    app,
+    modules: [
+      // we will see other modules later on
+      // VueFireAuth(),
+    ],
+  });
   // something to do
 });
 

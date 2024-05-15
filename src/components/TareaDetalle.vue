@@ -4,13 +4,12 @@
 
     <strong>
       <div>
-        {{ propiedades.nombre }} - {{ propiedades.completado }}
-        <q-btn
+        <!-- <q-btn
           @click="$emit('eliminar', propiedades.nombre)"
           icon="delete"
           size="sm"
           round
-        ></q-btn>
+        ></q-btn> -->
       </div>
     </strong>
   </div>
