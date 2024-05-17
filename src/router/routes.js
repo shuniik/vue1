@@ -40,8 +40,16 @@ const routes = [
   {
     path: "/",
     component: () => import("layouts/LayoutsDos.vue"),
+    meta: { requiresAuth: true },
     children: [
       { path: "local", component: () => import("pages/LocalStorageVue.vue") },
+    ],
+  },
+  {
+    path: "/",
+    component: () => import("layouts/LayoutsDos.vue"),
+    children: [
+      { path: "login", component: () => import("pages/FireAuth.vue") },
     ],
   },
 
